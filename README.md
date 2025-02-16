@@ -19,26 +19,26 @@ Before strategy meetings, managers can quickly check data on how different regio
    #### a, Parameter: Segment
 ![Image](https://github.com/user-attachments/assets/34f61f0e-c026-468b-8cca-522b455ce68f)
    #### b, Parameter: Category
-![image](https://github.com/user-attachments/assets/02977764-d7cd-490d-a8b1-9fabd1e1ec06)
+![Image](https://github.com/user-attachments/assets/1f651d11-4363-4665-8ea6-9c2d04c48c72)
    #### c, Parameter: Sub-Category
-![image](https://github.com/user-attachments/assets/25524d8a-c04c-4cc0-99f8-c632a9eed294)
+![Image](https://github.com/user-attachments/assets/8c65aeba-21e6-45ac-bf88-b3c2d4525f6b)
    #### d, Parameter: Market
-![image](https://github.com/user-attachments/assets/e0ea7473-836d-4ff9-93ae-c9f574aa9d73)
+![Image](https://github.com/user-attachments/assets/ffb3a21a-fb27-4904-ac86-86c00c90f996)
    #### e, Parameter: Region
-![image](https://github.com/user-attachments/assets/36892661-56c1-41d5-b09c-94aba598e104)
+![Image](https://github.com/user-attachments/assets/5857e205-89e8-40fc-9b59-d5a06c8fe27f)
 ### 2. Returns Overview
    #### a, Metric: Return Orders
-![image](https://github.com/user-attachments/assets/46ad8006-5b28-4cd9-bcc3-b301ac2d6d90)
+![Image](https://github.com/user-attachments/assets/613a683e-0473-4791-bb1a-989dbefc8df4)
    #### b, Metric: Return Revenue
-![image](https://github.com/user-attachments/assets/97920fd0-007d-47b0-bb77-3c956d7131c8)
+![Image](https://github.com/user-attachments/assets/2d91b36c-4713-4ae0-86b8-4a5732b365e6)
    #### c, Metric: Return Profit
-![image](https://github.com/user-attachments/assets/1dbcc1da-5f4c-4283-b07b-9bc452aeac0d)
+![Image](https://github.com/user-attachments/assets/a36bb28e-ace3-451c-89fb-2c8a8ab99c85)
    #### d, Metric: Return Rate
-![image](https://github.com/user-attachments/assets/4a84c4e7-5201-4a4d-9302-fea006db26a5)
+![Image](https://github.com/user-attachments/assets/168efc0b-d8c5-4a28-8fb8-e7f308643c09)
 ### 3. Market Analysis
-![image](https://github.com/user-attachments/assets/4294487e-25ad-4939-9bc6-be6699bed9a5)
+![Image](https://github.com/user-attachments/assets/d7e452ed-ff6a-48b6-a6d6-5191f5fb7361)
 ### 4. Product Analysis
-![image](https://github.com/user-attachments/assets/26484a08-6515-42ec-9df7-56a8b1a7fd8b)
+![Image](https://github.com/user-attachments/assets/1b56850a-1bee-4530-807a-e61cf207dea6)
 
 ## III/ Insights and Recommendations
 - In general, net profit margin of this year(2014) is relatively low comparing to the same period of last year(2013) ( from 1-2%)
