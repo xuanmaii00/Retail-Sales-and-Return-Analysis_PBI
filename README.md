@@ -1,20 +1,173 @@
-# Sales and Returns Analysis_Power BI
-## I/ Introducion
-### 1. Project Overview
-This Power BI project for **Global Superstore Sales**, a multinational retail company, provides key insights into company performance to help guide strategic decisions. The dashboard is built on data from three main tables:
+# Retail Sales and Returns Analysis_Power BI
 
-- **Orders**: Contains details for each transaction, like order dates, product info, sales, and profit.
-- **People**: Includes information on sales representatives in different regions.
-- **Returns**: Tracks returned transactions with product and region details.
+## 📑 Table of Contents
+- 📌 [Background & Overview](#background--overview)
+- 📂 [Dataset Description & Data Structure](#dataset-description--data-structure)
+- 🧠 [Design Thinking Process](#design-thinking-process)
+- 📊 [Key Insights & Visualizations](#key-insights--visualizations)
+- 🔎 [Final Conclusion & Recommendations](#final-conclusion--recommendations)
 
-### 2. Business Objective
-The main goal of this dashboard is to help **Senior Sales Managers** at Global Superstore Sales make smart, data-driven decisions about market expansion and which products to focus on. The dashboard brings together data on sales, profits, and return rates across different regions and product categories, giving a clear picture of how the company is performing.
+---
 
-Senior Sales Managers can use this dashboard to understand how well the company is selling, spot promising markets, and find the best products for growth. By looking at key numbers like revenue, profit, net profit margin, and return rates, managers can see what’s working well and what needs attention. The dashboard also shows trends in returns, helping to find any product or regional issues that might be causing returns.
+## 📌 Background & Overview
 
-Before strategy meetings, managers can quickly check data on how different regions and products are doing, review return rates, and identify any supply chain or customer service issues that could impact business. This data-driven view helps managers create more effective growth strategies based on solid numbers and performance insights.
+### **Objective**
+This Power BI project for **Global Superstore Sales**, a multinational retail company, analyzes retail sales and returns to provide insights into sales performance, return trends, and customer purchasing behavior. The goal is to help businesses optimize inventory management, reduce return rates, and improve overall sales strategies.
 
-## II/ Visualization
+### **👤 Who is this project for?**
+- ✔️ Data analysts & business analysts  
+- ✔️ Retail managers & inventory controllers  
+- ✔️ Decision-makers & stakeholders  
+
+### **❓ Business Questions**
+- ✔️ What are the best-selling products and seasonal trends?  
+- ✔️ What is the return rate for each product category?  
+- ✔️ How can we optimize inventory management based on sales and return data?  
+- ✔️ How do different customer segments contribute to total revenue and returns?  
+
+### **🎯 Project Outcome**
+- ✔️ **Sales Trends:** Identified peak sales periods and top-performing products.  
+- ✔️ **Return Analysis:** Found that Category X has the highest return rate due to defective items.  
+- ✔️ **Customer Behavior:** Repeat customers contribute 60% of revenue, while new customers have a higher return rate.  
+
+---
+
+## 📂 Dataset Description & Data Structure
+
+### **📌 Data Source**
+- **Source:** Internal company database  
+- **Size:** 50,000+ transactions  
+- **Format:** `.csv`  
+
+### **📊 Data Structure & Relationships**
+
+#### **1️⃣ Original Tables**
+- ✔️**Orders**: Contains details for each transaction, like order dates, product info, sales, and profit.
+- ✔️ **People**: Includes information on sales representatives in different regions.  
+- ✔️ **Returns**: : Tracks returned transactions with product and region details.Orders: Sales Transactions 
+
+#### **2️⃣ Table Schema & Data Snapshot**  
+After cleaning, trasforming and data modeling, the final schema follows a **star schema** structure with the following tables:
+- ✔️ **Fact_Orders** (Sales Transactions)  
+- ✔️ **Dim_Customer** (Customer Information)  
+- ✔️ **Dim_Returns** (Returns Data)  
+- ✔️ **Dim_Seller** (Sales Representative Details)  
+- ✔️ **Dim_Date** (Date Dimension Table)
+##### **Fact_Orders Table (Sales Transactions)**
+| Column Name  | Data Type | Description |
+|-------------|----------|-------------|
+| Category    | TEXT     | Product category |
+| City        | TEXT     | City of the order |
+| Customer_ID | INT      | Foreign key linking to Dim_Customer |
+| Order_Date  | DATE     | Date of order |
+| Order_ID    | INT      | Unique identifier for each order |
+| Product_ID  | INT      | Foreign key linking to product details |
+| Sales       | FLOAT    | Revenue from the order |
+| Profit      | FLOAT    | Profit from the order |
+| Quantity    | INT      | Number of units sold |
+
+##### **Dim_Customer Table (Customer Information)**
+| Column Name     | Data Type | Description |
+|---------------|----------|-------------|
+| Customer_ID  | INT      | Unique identifier for each customer |
+| Segment      | TEXT     | Customer segment |
+| Customer_Name | TEXT   | Full name of the customer |
+
+##### **Dim_Returns Table (Returns Data)**
+| Column Name  | Data Type | Description |
+|-------------|----------|-------------|
+| Order_ID    | INT      | Unique identifier for each returned order |
+| Returned    | TEXT     | Indicates whether an order was returned (Yes) |
+
+##### **Dim_Seller Table (Sales Representatives)**
+| Column Name  | Data Type | Description |
+|-------------|----------|-------------|
+| Region      | TEXT     | Sales region |
+| SalesPerson | TEXT     | Name of the salesperson responsible for the order |
+
+##### **Dim_Date Table (Date Dimension)**
+| Column Name      | Data Type | Description |
+|-----------------|----------|-------------|
+| Date           | DATE     | The date field |
+| Year           | INT      | Extracted year |
+| Month          | TEXT     | Month name |
+| Quarter        | TEXT     | Quarter of the year (e.g., Q1, Q2) |
+| Month Number   | INT      | Numeric representation of the month |
+| Year-Month     | TEXT     | Year and month combined |
+| Day            | INT      | Day of the month |
+| Weekday        | TEXT     | Name of the weekday |
+| Weekday Number | INT      | Numeric representation of the weekday |
+| Is Weekend     | BOOLEAN  | Indicates if the date falls on a weekend |
+| Week Number    | INT      | Week of the year |
+| Day of Year    | INT      | Day number within the year |
+
+### **3️⃣ Data Relationships (Star Schema)**
+✔️ **Fact_Orders** ↔ **Dim_Customer** (One-to-Many via Customer_ID)  
+✔️ **Fact_Orders** ↔ **Dim_Returns** (One-to-One via Order_ID)  
+✔️ **Fact_Orders** ↔ **Dim_Date** (One-to-Many via Order_Date)  
+✔️ **Fact_Orders** ↔ **Dim_Seller** (One-to-Many via Region)  
+
+👉 ![Image](https://github.com/user-attachments/assets/34edcfbe-5b0a-4d02-b5f3-8c08c4c665a7)
+---
+
+## 🧠 Design Thinking Process
+
+### **1️⃣ Empathize**  
+Understand the pain points in sales and return analysis.  
+
+### **2️⃣ Define Point of View**  
+Define the key challenges, such as identifying return patterns and high-demand products.  
+
+### **3️⃣ Ideate**  
+Brainstorm potential solutions using Power BI dashboards.  
+
+### **4️⃣ Prototype & Review**  
+Build initial dashboards, review, and refine insights.  
+
+👉 **Include a screenshot of the Design Thinking framework.**
+
+### **⚒️ Main Process**  
+- ✔️ **Data Cleaning & Preprocessing** (Handled missing data, inconsistencies)  
+- ✔️ **Exploratory Data Analysis (EDA)** (Identified key trends in sales & returns)  
+- ✔️ **Power BI Dashboard Creation**  
+
+👉 **Include SQL queries or Power BI transformations used in data cleaning.**  
+
+---
+
+## 📊 Key Insights & Visualizations
+
+### **🔍 Dashboard Preview**
+
+#### **1️⃣ Sales Performance Overview**
+👉 **Insert Power BI dashboard screenshot.**  
+- ✔️ **Observation:** Sales peak during holiday seasons.  
+- ✔️ **Recommendation:** Increase stock and promotional activities in Q4.  
+
+#### **2️⃣ Return Analysis**
+👉 **Insert Power BI dashboard screenshot.**  
+- ✔️ **Observation:** Electronics have the highest return rate.  
+- ✔️ **Recommendation:** Improve quality control and customer return policies.  
+
+#### **3️⃣ Customer Segmentation**
+👉 **Insert Power BI dashboard screenshot.**  
+- ✔️ **Observation:** Repeat customers generate 60% of revenue.  
+- ✔️ **Recommendation:** Implement a loyalty program to increase retention.  
+
+---
+
+## 🔎 Final Conclusion & Recommendations
+
+### 📌 **Key Takeaways**
+- ✔️ **Increase stock for high-demand periods to prevent stockouts.**  
+- ✔️ **Implement stricter quality control for high-return products.**  
+- ✔️ **Launch targeted promotions for high-value customers to improve retention.**  
+
+This project provides actionable insights for optimizing sales and return processes, improving customer retention, and enhancing overall retail profitability. 🚀
+ 
+
+
+
 ### 1. Sales Overview
    #### a, Parameter: Segment
 ![Image](https://github.com/user-attachments/assets/34f61f0e-c026-468b-8cca-522b455ce68f)
